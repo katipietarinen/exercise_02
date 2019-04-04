@@ -19,10 +19,10 @@ print "Click on the ...more link to see the whole page"
 
 import lxml.html
 root = lxml.html.fromstring(html) # turn our HTML into an lxml object
-tds = root.cssselect('td') # get all the <td> tags
-for td in tds:
-    print lxml.html.tostring(td) # the full HTML tag
-    print td.text                # just the text inside the HTML tag
+trs = root.cssselect('tr') # get all the <td> tags
+for tr in trs:
+    print lxml.html.tostring(tr) # the full HTML tag
+    print tr.text                # just the text inside the HTML tag
 
 # -----------------------------------------------------------------------------
 # 2. Save the data in the ScraperWiki datastore.
@@ -31,13 +31,13 @@ for td in tds:
 # Check the 'Data' tab - here you'll see the data saved in the ScraperWiki store. 
 # -----------------------------------------------------------------------------
 
-for td in tds:
-     record = { "td" : td.text } # column name and value
+for tr in trs:
+     record = { "tr" : tr.text } # column name and value
      try:
-        scraperwiki.sqlite.save(["td"], record) # save the records one by one
+        scraperwiki.sqlite.save(["tr"], record) # save the records one by one
      except:
-            record = { "td" : "NO ENTRY" }
-            scraperwiki.sqlite.save(["td"], record)
+            record = { "tr" : "NO ENTRY" }
+            scraperwiki.sqlite.save(["tr"], record)
     
 # -----------------------------------------------------------------------------
 # Go back to the Tutorials page and continue to Tutorial 3 to learn about 
