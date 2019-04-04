@@ -20,7 +20,7 @@ print "Click on the ...more link to see the whole page"
 import lxml.html
 root = lxml.html.fromstring(html) # turn our HTML into an lxml object
 tds = root.cssselect('th') # get all the <td> tags
-for th in ths:
+for th in tds:
     print lxml.html.tostring(th) # the full HTML tag
     print th.text                # just the text inside the HTML tag
 
