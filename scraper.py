@@ -19,7 +19,7 @@ print "Click on the ...more link to see the whole page"
 
 import lxml.html
 root = lxml.html.fromstring(html) # turn our HTML into an lxml object
-jane = root.cssselect('td') # get all the <td> tags
+jane = root.cssselect('div') # get all the <td> tags
 
 
 # -----------------------------------------------------------------------------
@@ -28,10 +28,10 @@ jane = root.cssselect('td') # get all the <td> tags
 # -- CLICK THE 'RUN' BUTTON BELOW
 # Check the 'Data' tab - here you'll see the data saved in the ScraperWiki store. 
 # -----------------------------------------------------------------------------
-for td in jane:
+for div in jane:
      print div
-for td in jane:
-     record = { "td" : td.text_content() } # column name and value
+for div in jane:
+     record = { "td" : div.text_content() } # column name and value
      scraperwiki.sqlite.save(["td"], record)
     
 # -----------------------------------------------------------------------------
