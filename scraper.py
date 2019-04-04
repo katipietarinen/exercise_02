@@ -29,7 +29,7 @@ jane = root.cssselect('td') # get all the <td> tags
 # Check the 'Data' tab - here you'll see the data saved in the ScraperWiki store. 
 # -----------------------------------------------------------------------------
 for td in jane:
-     print td.text_content()
+     print td.tag
 for td in jane:
      record = { "td" : td.text_content() } # column name and value
      scraperwiki.sqlite.save(["td"], record)
