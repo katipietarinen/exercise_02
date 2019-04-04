@@ -30,7 +30,7 @@ jane = root.cssselect('td') # get all the <td> tags
 # -----------------------------------------------------------------------------
 
 for td in jane:
-     record = { "td" : td..attrib['href'] } # column name and value
+     record = { "td" : td.attrib['href'] } # column name and value
      try:
         scraperwiki.sqlite.save(["td"], record) # save the records one by one
      except:
