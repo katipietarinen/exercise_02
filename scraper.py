@@ -19,8 +19,8 @@ print "Click on the ...more link to see the whole page"
 
 import lxml.html
 root = lxml.html.fromstring(html) # turn our HTML into an lxml object
-trs = root.cssselect('tr') # get all the <td> tags
-for tr in trs:
+jane = root.cssselect('tr') # get all the <td> tags
+for tr in jane:
     print lxml.html.tostring(tr) # the full HTML tag
     print tr.text                # just the text inside the HTML tag
 
@@ -31,7 +31,7 @@ for tr in trs:
 # Check the 'Data' tab - here you'll see the data saved in the ScraperWiki store. 
 # -----------------------------------------------------------------------------
 
-for tr in trs:
+for tr in jane:
      record = { "tr" : tr.text } # column name and value
      try:
         scraperwiki.sqlite.save(["tr"], record) # save the records one by one
